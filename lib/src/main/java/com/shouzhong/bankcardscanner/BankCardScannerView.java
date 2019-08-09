@@ -292,8 +292,10 @@ public class BankCardScannerView extends FrameLayout implements Camera.PreviewCa
      * 打开系统相机，并进行基本的初始化
      */
     private void startCamera() {
-        api = new BankCardAPI();
-        api.WTInitCardKernal("", 0);
+        if (api == null) {
+            api = new BankCardAPI();
+            api.WTInitCardKernal("", 0);
+        }
         if (cameraHandlerThread == null) {
             cameraHandlerThread = new CameraHandlerThread(this);
         }
@@ -314,8 +316,10 @@ public class BankCardScannerView extends FrameLayout implements Camera.PreviewCa
             cameraWrapper.camera.release();//释放资源
             cameraWrapper = null;
         }
-        api.WTUnInitCardKernal();
-        api = null;
+        if (api != null) {
+            api.WTUnInitCardKernal();
+            api = null;
+        }
         removeAllViews();
     }
 
