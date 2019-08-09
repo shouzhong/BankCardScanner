@@ -47,8 +47,6 @@ public class BankCardScannerView extends FrameLayout implements Camera.PreviewCa
 
     public BankCardScannerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        //创建ImageScanner（zbar扫码器）并进行基本设置（如支持的码格式）
-        setupScanner();
     }
 
     /**
@@ -280,14 +278,6 @@ public class BankCardScannerView extends FrameLayout implements Camera.PreviewCa
         }
     }
 
-    /**
-     *
-     */
-    private void setupScanner() {
-        api = new BankCardAPI();
-        api.WTInitCardKernal("", 0);
-    }
-
     void setupCameraPreview(final CameraWrapper cameraWrapper) {
         this.cameraWrapper = cameraWrapper;
         if (this.cameraWrapper == null) return;
@@ -302,6 +292,8 @@ public class BankCardScannerView extends FrameLayout implements Camera.PreviewCa
      * 打开系统相机，并进行基本的初始化
      */
     private void startCamera() {
+        api = new BankCardAPI();
+        api.WTInitCardKernal("", 0);
         if (cameraHandlerThread == null) {
             cameraHandlerThread = new CameraHandlerThread(this);
         }
@@ -322,6 +314,8 @@ public class BankCardScannerView extends FrameLayout implements Camera.PreviewCa
             cameraWrapper.camera.release();//释放资源
             cameraWrapper = null;
         }
+        api.WTUnInitCardKernal();
+        api = null;
         removeAllViews();
     }
 
