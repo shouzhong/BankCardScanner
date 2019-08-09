@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.shouzhong.bankcardscanner.BankCardScannerView
+        android:id="@+id/bank"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"/>
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@mipmap/back_camera_btn"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="55dp"
+        android:onClick="onClickBack"/>
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@mipmap/flash_camera_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginBottom="55dp"
+        android:onClick="onClickLight"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="#80ffffff"
+        android:textSize="20sp"
+        android:text="请将银行卡正面至于此区域，尝试对齐边缘"/>
+</RelativeLayout>
