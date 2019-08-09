@@ -8,7 +8,7 @@
 ## 使用
 ### 依赖
 ```
-implementation 'com.shouzhong:BankCardScanner:1.0.0'
+implementation 'com.shouzhong:BankCardScanner:1.0.1'
 ```
 ### 代码
 xml
