@@ -33,7 +33,7 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
     bankCardScannerView.setViewFinder(new ViewFinder(this));
     bankCardScannerView.setCallback(new Callback() {
         @Override
-        public void result(String s， String path) {
+        public void result(String s, String path) {
             Log.e("==================", s);
             bankCardScannerView.restartPreviewAfterDelay(2000);
         }
