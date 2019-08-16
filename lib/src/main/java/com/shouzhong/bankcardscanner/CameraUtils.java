@@ -10,7 +10,7 @@ class CameraUtils {
     private static final String TAG = "CameraUtils";
 
     /**
-     * 返回第一个后置相机的id。若未找到后置相机，则返回-1
+     * 返回第一个后置相机的id。若未找到后置相机，则返回-img1
      **/
     static int getDefaultCameraId() {
         int numberOfCameras = Camera.getNumberOfCameras();

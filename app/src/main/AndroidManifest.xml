@@ -20,6 +20,8 @@
         <activity android:name=".ScannerActivity"
             android:theme="@style/ThemeFullscreen"
             android:screenOrientation="landscape"/>
+
+        <activity android:name=".PortraitScannerActivity" />
     </application>
 
 </manifest>

@@ -8,7 +8,7 @@
 ## 使用
 ### 依赖
 ```
-implementation 'com.shouzhong:BankCardScanner:1.0.1'
+implementation 'com.shouzhong:BankCardScanner:1.0.2'
 ```
 ### 代码
 xml
@@ -33,7 +33,7 @@ protected void onCreate(@Nullable Bundle savedInstanceState) {
     bankCardScannerView.setViewFinder(new ViewFinder(this));
     bankCardScannerView.setCallback(new Callback() {
         @Override
-        public void result(String s) {
+        public void result(String s， String path) {
             Log.e("==================", s);
             bankCardScannerView.restartPreviewAfterDelay(2000);
         }
@@ -184,6 +184,13 @@ setFlash | 开启/关闭闪光灯
 toggleFlash | 切换闪光灯的点亮状态
 isFlashOn | 闪光灯是否被点亮
 setShouldAdjustFocusArea | 设置是否要根据扫码框的位置去调整对焦区域的位置，部分手机不支持
+setSaveBmp | 设置是否保存图片
+
+BankCardUtils
+
+方法名 | 说明
+------------ | -------------
+decode | 识别图片（识别率很低）
 
 ## 混淆
 ```

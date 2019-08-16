@@ -28,9 +28,10 @@ public class ScannerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scanner);
         bankCardScannerView = findViewById(R.id.bank);
         bankCardScannerView.setViewFinder(new ViewFinder(this));
+        bankCardScannerView.setSaveBmp(true);
         bankCardScannerView.setCallback(new Callback() {
             @Override
-            public void result(String s) {
+            public void result(String s, String path) {
                 Log.e("==================", s);
                 startVibrator();
                 bankCardScannerView.restartPreviewAfterDelay(2000);
@@ -75,7 +76,7 @@ public class ScannerActivity extends AppCompatActivity {
 
     class ViewFinder extends View implements IViewFinder {
         private Rect framingRect;//扫码框所占区域
-        private float widthRatio = 0.6f;//扫码框宽度占view总宽度的比例
+        private float widthHeightRatio = 1.6f;//扫码框宽度占view总宽度的比例
         private float heightRatio = 0.7f;// 扫码框高度占view总宽度的比例
         private int leftOffset = -1;//扫码框相对于左边的偏移量，若为负值，则扫码框会水平居中
         private int topOffset = -1;//扫码框相对于顶部的偏移量，若为负值，则扫码框会竖直居中
@@ -165,8 +166,8 @@ public class ScannerActivity extends AppCompatActivity {
         private synchronized void updateFramingRect() {
             Point viewSize = new Point(getWidth(), getHeight());
             int width, height;
-            width = (int) (getWidth() * widthRatio);
             height = (int) (getHeight() * heightRatio);
+            width = (int) (height * widthHeightRatio);
 
             int left, top;
             if (leftOffset < 0) {
