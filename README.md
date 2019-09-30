@@ -1,4 +1,5 @@
 # BankCardScanner
+## 注意，该项目不在维护，迁移到[Scanner](https://github.com/shouzhong/Scanner)
 ## 说明
 扫描银行卡获取银行卡号，你可以定义任何位置任何尺寸的预览而不会导致摄像头预览变形
 ## 效果图
